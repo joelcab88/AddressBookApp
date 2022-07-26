@@ -12,18 +12,18 @@ namespace AddressBookApp.Interface
         /// Obtiene información de todos los contactos.
         /// </summary>
         /// <returns>información de contactos</returns>
-        ContactDTO GetAllContacts();
+        List<ContactDTO> GetAllContacts(string name_);
         /// <summary>
         /// Obtiene la información de un contacto dado un id.
         /// </summary>
         /// <param name="iIdContacto_">Id del contacto a consulta.</param>
         /// <returns>información de contacto.</returns>
-        ContactDTO GetContactById(int iIdContacto_);
+        ContactDTO GetContactById(string iIdContacto_);
         /// <summary>
         /// Elimina información de contacto
         /// </summary>
         /// <param name="iIdContacto_">Id del contacto a consulta.</param>
         /// <returns>true en caso de que el registro haya sido eliminado, caso contario = false</returns>
-        bool DeleteContact(int iIdContacto_);
+        bool DeleteContact(string iIdContacto_);
     }
 }

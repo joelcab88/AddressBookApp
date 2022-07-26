@@ -1,3 +1,5 @@
+using AddressBookApp.Interface;
+using AddressBookApp.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,7 @@ namespace AddressBookApp
         {
             services.AddControllers();
             AddSwagger(services);
+            services.AddScoped<IContactServices, ContactServices>();
         }
 
         private void AddSwagger(IServiceCollection services)
