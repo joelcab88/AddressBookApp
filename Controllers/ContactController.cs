@@ -23,7 +23,7 @@ namespace AddressBookApp.Controllers
         {
             var response = await Task.Run<IActionResult>(() => {
                 var result = _contactServices.GetAllContacts(name);
-                if (result == null)
+                if (!result.Any())
                     return NotFound();
                 return Ok(result);
             }).ContinueWith(ex =>
