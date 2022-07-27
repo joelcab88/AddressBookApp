@@ -18,11 +18,13 @@ namespace AddressBookApp.Controllers
         {
             _contactServices = contactServices_;
         }
-        [HttpGet("getallcontacts/{name}")]
-        public async Task<IActionResult> GetAllContacts(string name=null)
+        [HttpGet("getallcontacts/{name?}")]
+        public async Task<IActionResult> GetAllContacts(string name)
         {
             var response = await Task.Run<IActionResult>(() => {
                 var result = _contactServices.GetAllContacts(name);
+                if (result == null)
+                    return NotFound();
                 return Ok(result);
             }).ContinueWith(ex =>
             {
